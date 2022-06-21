@@ -2,6 +2,8 @@
 spring:
    application:
       name: gestao_pessoas
-
+   mvc:
+     pathmatch:
+           matching-strategy: ant_path_matcher
    profiles:
       active: default, dev
