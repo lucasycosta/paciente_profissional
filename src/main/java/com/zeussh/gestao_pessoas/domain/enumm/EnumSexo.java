@@ -7,7 +7,8 @@ import lombok.Setter;
 @AllArgsConstructor
 public enum EnumSexo {
 
-	MASCULINO("MASCULINO", "Masculino"), FEMININO("FEMININO", "Feminino");
+	MASCULINO("MASCULINO", "Masculino"), 
+	FEMININO("FEMININO", "Feminino");
 
 	@Getter
 	@Setter

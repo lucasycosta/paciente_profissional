@@ -14,6 +14,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import com.zeussh.gestao_pessoas.domain.enumm.EnumSexo;
+import com.zeussh.gestao_pessoas.util.DataUtil;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,7 +25,9 @@ import lombok.NoArgsConstructor;
 @Table
 @SuppressWarnings("serial")
 @EqualsAndHashCode(callSuper = false)
-@Data @AllArgsConstructor @NoArgsConstructor
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Paciente implements Serializable {
 
 	@Id
@@ -49,7 +52,20 @@ public class Paciente implements Serializable {
 	private Date dataNascimento;
 
 	@Column
+	private Boolean desabilitado;
+
+	@Column
 	@Enumerated(EnumType.STRING)
 	private EnumSexo sexo;
 
+	public String getDataNascimento() {
+		if (this.dataNascimento != null) {
+			return DataUtil.getData(dataNascimento);
+		}
+		return null;
+	}
+
+	public void setDataNascimento(String dataNascimento) {
+		this.dataNascimento = DataUtil.getData(dataNascimento);
+	}
 }
