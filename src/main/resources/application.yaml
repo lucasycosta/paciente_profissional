@@ -1,0 +1,7 @@
+# DEFINICAO LOG DA APLICACAO
+spring:
+   application:
+      name: gestao_pessoas
+
+   profiles:
+      active: default, dev

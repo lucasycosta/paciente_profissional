@@ -1,0 +1,42 @@
+# DEFINICAO LOG DA APLICACAO
+logging:
+   level:
+      com.zeussh.gestao_pessoas: DEBUG
+      org.springframework: INFO
+      
+# DEFINICAO SERVIDOR DE APLICACAO
+server:
+   port: 8080
+   contextPath: /
+   maxPostSize: 0
+   tomcat:
+      max-http-post-size: 10485760
+      
+# DEFINICAO SEGURANCA DA APLICACAO
+security:
+    user:
+      name: admin
+      password: admin
+    basic:
+      enabled: false
+      
+# DEFINICAO BANCO DE DADOS      
+spring:
+    jpa:
+        database: POSTGRESQL
+        show-sql: true
+        hibernate:
+            ddl-auto: create
+    datasource:
+        platform: postgres
+        driverClassName: org.postgresql.Driver
+        url: jdbc:postgresql://localhost:5432/emg
+        username: postgres
+        password: postgres
+    jackson:
+        deserialization:
+            fail-on-unknown-properties: false
+    http:
+        multipart:
+            max-file-size: 20MB
+            max-request-size: 20MB            
