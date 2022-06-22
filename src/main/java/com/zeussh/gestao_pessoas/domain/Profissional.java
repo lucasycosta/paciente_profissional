@@ -59,6 +59,9 @@ public class Profissional implements Serializable {
 	
 	@Column
 	private String imagemAssinatura;
+	
+	@Column
+	private Boolean desabilitado;
 
 	@Transient
 	private String file;
