@@ -50,15 +50,15 @@ Funcionalidade: Manter Paciente
 		
 	@apirest
 	Esquema do Cenario: Cadastrar Paciente 
-		Dado a insercao dos dados do paciente <nome>, <email>, <telefone>, <sexo>, <dataNascimento> e <cpf>
+		Dado a insercao dos dados do paciente <nome>, <email>, <telefone>, <dataNascimento>, <cpf>, <sexo>
 		Quando chamar o metodo POST de cadastro de paciente
 		Entao o retorno paciente sera <status> 
 	
 	Exemplos:
-		| nome        | email           | telefone         |sexo        |dataNascimento | cpf       |status |
-		| 'TesteAPI1' | 'api1@mail.com' | '(61)99999-9999' |'MASCULINO' |'01/01/2022'   | '123456'  |200    |
-		| 'TesteAPI2' | 'api2@mail.com' | '(61)99999-9999' |'FEMININO'  |'01/01/2022'   | '123456'  |200    |
-		| 'TesteAPI3' | 'api3@mail.com' | '(61)99999-9999' |'MASCULINO' |'01/01/2022'   | '123456'  |200    |
+		| nome        | email           | telefone         |dataNascimento | cpf       |status | sexo |
+		| 'TesteAPI1' | 'api1@mail.com' | '(61)99999-9999' |'01/01/2022'   | '123456'  |200    |'MASCULINO'|
+		| 'TesteAPI2' | 'api2@mail.com' | '(61)99999-9999' |'01/01/2022'   | '123456'  |200    |'MASCULINO'|
+		| 'TesteAPI3' | 'api3@mail.com' | '(61)99999-9999' |'01/01/2022'   | '123456'  |200    |'MASCULINO'|
 		
 	@apirest
 	Cenario: Listar Pacientes 
@@ -78,7 +78,7 @@ Funcionalidade: Manter Paciente
 	
 	@apirest
 	Esquema do Cenario: Desabilitar paciente pelo id 
-		Dado que passamos o <id> do paciente
+		Dado que passamos o <id> do paciente para desabilitar
 		Quando chamar o metodo DELETE paciente
 		Entao o <status> sera
 		
@@ -86,6 +86,7 @@ Funcionalidade: Manter Paciente
 		|id |status|
 		|1  |200   |
 		|2  |200   |
+		|12 |500   |
 		
 		
 	
