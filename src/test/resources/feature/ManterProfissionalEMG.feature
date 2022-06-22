@@ -1,19 +1,6 @@
 #language: pt
 
 Funcionalidade: Manter profissional
-
-	@unitario
-	Esquema do Cenario: Habilitar usuario
-		Dado que um usuario <opcao_cadastro> for cadastrado
-		Quando o pagamento for efetivado 
-		Entao o acesso do usuario seria habilitado
-		
-	Exemplos: 
-	 | opcao_cadastro |
-	 | 'ACESSO.PJ'    |
-	 | 'ACESSO.PF'    |
-	 | 'ACESSO.PJ'    |
-	 | 'ACESSO.PF'    |
 		
 	@unitario
 	Esquema do Cenario: Cadastrar um profissional
@@ -31,11 +18,13 @@ Funcionalidade: Manter profissional
 
 	@unitario
 	Cenario: Listar todos os profissionais 
+		Dado acesso a tela de cadastro de profissionais 
 		Quando chamar o metodo GET TODOS profissionais
 	 	Entao todos os profissionais serao listados na tabela abaixo 
 	 	
 	@unitario
 	Esquema do Cenario: Buscar profissional pelo id
+		Dado acesso a tela de cadastro de profissionais 
 	 	Quando chamar o metodo GET profissional por <id>
 	 	Entao as informacoes do profissional serao apresentadas 
 	 	
@@ -49,16 +38,31 @@ Funcionalidade: Manter profissional
 	 
 	@unitario
 	Esquema do Cenario: Desabilitar um profissional
-	 	Quando chamar o metodo DELETE profissional por <idP>
+		Dado acesso a tela de cadastro de profissionais 
+	 	Quando chamar o metodo DELETE profissional por <id>
 		Entao o profissional sera desabilitado
 		
 	Exemplos:
-		| idP |
-		| 1   |
-		| 2   |
-		| 3   |
-		| 4   |
-		| 5   |
+		| id |
+		| 1  |
+		| 2  |
+		| 3  |
+		| 4  |
+		| 5  |
+		
+	@unitario
+	Esquema do Cenario: Habilitar usuario
+		Dado que seja passado o <id> do profissional desabilitado
+		Quando chamar o metodo GET para habilitar profissional
+		Entao o profissional sera habilitado novamente
+		
+	Exemplos:
+		| id |
+		| 1  |
+		| 2  |
+		| 3  |
+		| 4  |
+		| 5  |
 		
 	@apirest
 	Esquema do Cenario: Cadastrar Profissional 
@@ -92,7 +96,7 @@ Funcionalidade: Manter profissional
 		
 	@apirest
 	Esquema do Cenario: Desabilitar profissional pelo id 
-		Dado que passamos o <id> do profissional
+		Dado o <id> do profissional
 		Quando chamar o metodo DELETE profissional
 		Entao o <status> sera
 		
